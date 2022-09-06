@@ -1,12 +1,37 @@
-import { Alert, Button } from "reactstrap";
+import {
+  Alert,
+  Button,
+  Col,
+  InputGroup,
+  InputGroupText,
+  Row,
+  Input,
+} from "reactstrap";
+
+import RestaurantList from "../components/RestaurantsList";
 
 const index = () => {
   return (
-    <div>
-      <div>
-        <Alert color="primary">Hello Project</Alert>
-        <Button color="primary">Hello from Next.js</Button>
-      </div>
+    <div className="container-fluid">
+      <Row>
+        <Col>
+          <div className="search">
+            <InputGroup>
+              <InputGroupText>探す</InputGroupText>
+              <Input placeholder="レストラン名を入力してください" />
+            </InputGroup>
+          </div>
+          <RestaurantList />
+        </Col>
+      </Row>
+      <style jsx>
+        {`
+          .search {
+            margin: 20px;
+            width: 500px;
+          }
+        `}
+      </style>
     </div>
   );
 };
