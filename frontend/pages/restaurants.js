@@ -1,8 +1,17 @@
-import { Col, Row, Card, CardImg, CardBody, CardTitle, Button } from "reactstrap";
+import {
+  Col,
+  Row,
+  Card,
+  CardImg,
+  CardBody,
+  CardTitle,
+  Button,
+} from "reactstrap";
 import Link from "next/link";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 import { useRouter } from "next/router";
+import Cart from "../components/Cart";
 
 const GET_RESTAURANT_DISHES = gql`
   query ($id: ID!) {
@@ -52,12 +61,17 @@ const Restaurants = () => {
                 </CardBody>
                 <div className="card-footer">
                   <Button outline color="primary">
-                      ＋ カートに入れる
+                    ＋ カートに入れる
                   </Button>
                 </div>
               </Card>
             </Col>
           ))}
+          <Col xs="3" style={{ padding: 0 }}>
+            <div>
+              <Cart></Cart>
+            </div>
+          </Col>
         </Row>
       </>
     );
